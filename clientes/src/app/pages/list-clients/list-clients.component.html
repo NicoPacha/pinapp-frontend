@@ -17,12 +17,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of clientList | paginate: config">
-        <td>{{ item.name }}</td>
-        <td>{{ item.surname }}</td>
-        <td>{{ item.age }}</td>
-        <td>{{ item.dateOfBirth }}</td>
-        <td>año: {{item.probableDeath}}</td>
+      <tr *ngFor="let client of clientList | paginate: config">
+        <td>{{ client.name }}</td>
+        <td>{{ client.surname }}</td>
+        <td>{{ client.age }}</td>
+        <td>{{ client.dateOfBirth }}</td>
+        <td>Año: {{client.probableDeath}}</td>
       </tr>
     </tbody>
   </table>

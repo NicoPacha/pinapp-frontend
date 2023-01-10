@@ -1,12 +1,9 @@
-export interface ClientViewModel {
-  id: string;
-  nombre: string;
-  apellido: string;
-  edad: number;
-  fechaNacimiento: string;
-  fechaPosibleMuerte?: string;
+export interface Client {
+  name: string,
+  surname: string,
+  age: number,
+  dateOfBirth: Date
 }
-
 export interface ClientModel {
   name: string;
   surname: string;

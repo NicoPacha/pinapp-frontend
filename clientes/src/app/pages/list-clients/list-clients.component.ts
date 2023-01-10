@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientViewModel, ClientWithProbableDeathModel } from 'src/app/models/client.model';
+import { ClientWithProbableDeathModel } from 'src/app/models/client.model';
 import { ClientsService } from 'src/app/services/clients.service';
 import { ConfiPaginationModel } from 'src/app/util/config-model-pagination';
 
@@ -10,7 +10,6 @@ import { ConfiPaginationModel } from 'src/app/util/config-model-pagination';
 })
 export class ListClientsComponent implements OnInit {
   config: ConfiPaginationModel;
-  clienteList: ClientViewModel[];
   clientList: ClientWithProbableDeathModel[];
   clients = { data: [] };
   average: number;

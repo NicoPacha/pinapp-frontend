@@ -5,8 +5,7 @@ import {
   FormGroup,
   FormGroupDirective,
 } from '@angular/forms';
-import { ClientModel, ClientViewModel, ClientWithProbableDeathModel } from 'src/app/models/client.model';
-import { FirebaseDataService } from 'src/app/services/firebase-data.service';
+import { ClientModel, ClientWithProbableDeathModel } from 'src/app/models/client.model';
 import { ConfiPaginationModel } from 'src/app/util/config-model-pagination';
 import { Alpha } from 'src/app/validators/alpha-validator';
 import { Required } from 'src/app/validators/required-validator';
@@ -17,20 +16,15 @@ import { ClientsService } from 'src/app/services/clients.service';
   selector: 'app-clients',
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.css'],
-  providers: [FirebaseDataService],
 })
 export class ClientsComponent implements OnInit {
   clienteForm: FormGroup;
   initialState: ClientModel;
   clientList: ClientWithProbableDeathModel[];
-  clienteList: ClientViewModel[];
   clients = { count: 10, data: [] };
   config: ConfiPaginationModel;
-  edades = [];
-  edadPromedioTotal: number;
   showData: boolean;
   desviacionEstandar: number;
-  idCliente: string;
 
   constructor(
     private fb: FormBuilder,
@@ -53,12 +47,12 @@ export class ClientsComponent implements OnInit {
     const { name, surname, age, dateOfBirth } = this.initialState;
 
     this.clienteForm = this.fb.group({
-      name: [name, [Required('El nombre es requerido'), Alpha()]],
-      surname: [surname, [Required('El apellido es requerido'), Alpha()]],
-      age: [age, [Required('La edad es requerida')]],
+      name: [name, [Required('*El nombre es requerido'), Alpha()]],
+      surname: [surname, [Required('*El apellido es requerido'), Alpha()]],
+      age: [age, [Required('*La edad es requerida')]],
       dateOfBirth: [
         dateOfBirth,
-        [Required('La fecha de nacimiento es requerida')],
+        [Required('*La fecha de nacimiento es requerida')],
       ],
     });
   }

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore } from '@angular/fire/compat/firestore/';
 import { environment } from '../environments/environment';
 import {MatIconModule} from '@angular/material/icon';
@@ -21,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     MatIconModule,
-    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent],
