@@ -58,6 +58,7 @@ export class ClientsComponent implements OnInit {
   }
 
   async createCliente(): Promise<void> {
+    // TODO: Manejar mejor la respuesta del backend
     try {
       const formValue = this.clienteForm.value;
       formValue.dateOfBirth = this.convertDate(formValue.dateOfBirth);
@@ -89,6 +90,7 @@ export class ClientsComponent implements OnInit {
   }
 
   convertDate(str): string {
+    // TODO: Quitar magics numbers y magics strings
     var date = new Date(str),
       mnth = ('0' + (date.getMonth() + 1)).slice(-2),
       day = ('0' + date.getDate()).slice(-2);
