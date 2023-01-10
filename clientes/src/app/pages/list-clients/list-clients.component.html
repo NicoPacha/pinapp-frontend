@@ -1,0 +1,52 @@
+
+<div *ngIf="!showData" class="animated fadeIn fast">
+  <mat-spinner class="mt-5 spinner-class"></mat-spinner>
+  <h2 class="text-center">Cargando Datos..</h2>
+</div>
+<div class="animated fadeIn" *ngIf="showData">
+  <h1 class="mt-5 mb-4 text-center">Listado de clientes</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">Fecha probable de muerte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of clientList | paginate: config">
+        <td>{{ item.name }}</td>
+        <td>{{ item.surname }}</td>
+        <td>{{ item.age }}</td>
+        <td>{{ item.dateOfBirth }}</td>
+        <td>año: {{item.probableDeath}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+  <div class="row">
+    <h1 class="mt-5 mb-4 text-center">Estadisticas de clientes</h1>
+    <div class="row">
+      <div class="col md-6">
+        <p class="d-inline float-left">
+          Promedio de edad de los clientes registrados:
+          <strong>{{average}}</strong>
+        </p>
+      </div>
+
+      <div class="col md-6">
+        <p class="d-inline float-right">
+          Desviación estándar entre las edades de todos los clientes:
+          <strong>{{standardDeviation}}</strong>
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+</div>

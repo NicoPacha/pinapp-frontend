@@ -1,0 +1,74 @@
+<form
+  class="row g-3 form-style mt-3 animated fadeIn fast"
+  (ngSubmit)="submitCliente(formDirective)"
+  [formGroup]="clienteForm"
+  #formDirective="ngForm"
+>
+  <legend>Nuevo Cliente</legend>
+  <div class="example-container">
+    <mat-form-field hintLabel="" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        maxlength="20"
+        placeholder="EJ: Jose"
+        formControlName="name"
+      />
+      <mat-error *ngIf="name.invalid">
+        {{ getErrorMessage(name) }}
+      </mat-error>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field hintLabel="" appearance="fill">
+      <mat-label>Apellido</mat-label>
+      <input
+        matInput
+        maxlength="20"
+        placeholder="EJ: Alvarez"
+        formControlName="surname"
+      />
+      <mat-error *ngIf="surname.invalid">
+        {{ getErrorMessage(surname) }}
+      </mat-error>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field hintLabel="" appearance="fill">
+      <mat-label>Edad</mat-label>
+      <input
+        matInput
+        maxlength="3"
+        placeholder="EJ: 33"
+        formControlName="age"
+        pattern="^[0-9]+"
+        type="number"
+      />
+      <mat-error *ngIf="age.invalid">
+        {{ getErrorMessage(age) }}
+      </mat-error>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="dateOfBirth"
+      />
+      <mat-error *ngIf="dateOfBirth.invalid">
+        {{ getErrorMessage(dateOfBirth) }}
+      </mat-error>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <button
+      class="buttonCreate"
+      mat-flat-button
+      type="submit"
+      color="primary"
+    >
+      Crear cliente
+    </button>
+  </div>
+</form>
